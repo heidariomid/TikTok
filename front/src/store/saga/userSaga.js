@@ -6,8 +6,8 @@ const axios = new Axios();
 //TODO FETCH Worker
 function* fetchUserWorker(action) {
 	try {
-		const users = yield call(() => axios.get('user/add').then((res) => res.data.items));
-		yield put({type: actions.FETCH_USER_SUCCESS, payload: {users: users, messages: 'success'}});
+		// const users = yield call(() => axios.get('user/add').then((res) => res.data.items));
+		yield put({type: actions.FETCH_USER_SUCCESS, payload: {messages: action.payload.messages}});
 	} catch (error) {
 		yield put({type: actions.FETCH_USER_FAILED, payload: {messages: error.message}});
 	}

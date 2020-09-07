@@ -1,25 +1,17 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {actions} from '../../store/actions';
+import {Link} from 'react-router-dom';
+import HomeIcon from '@material-ui/icons/Home';
 
-const Users = ({userState, fetchUser, messages}) => {
+const Users = () => {
 	return (
 		<div>
 			<h2>Welcom to User Component</h2>
-			<h3>{messages}</h3>
+			<Link to="/">
+				<HomeIcon />
+				back to
+			</Link>
 		</div>
 	);
 };
 
-const State = (state) => ({userState: state.users.items, messages: state.users.messages, errorMessages: state.users.errorMessages});
-const Dispatch = (dispatch) => {
-	return {
-		fetchUser: (payload) => {
-			dispatch({
-				type: actions.FETCH_USER,
-				payload,
-			});
-		},
-	};
-};
-export default connect(State, Dispatch)(Users);
+export default Users;

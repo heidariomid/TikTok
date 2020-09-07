@@ -6,7 +6,7 @@ const reducer = (userState, action) => {
 	let result = userState;
 	switch (action.type) {
 		case actions.FETCH_USER_SUCCESS:
-			result = {...userState, items: action.payload.users, messages: action.payload.messages};
+			result = {...userState, messages: action.payload.messages};
 			break;
 		case actions.FETCH_USER_FAILED:
 			result = {...userState, hasError: true, errorMessages: action.payload.messages};
